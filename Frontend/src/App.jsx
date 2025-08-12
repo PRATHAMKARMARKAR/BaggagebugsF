@@ -27,27 +27,10 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
-      {/* <DashboardDetails/> */}
-      {/* <LandingPage/>  */}
-      {/* <Login /> */}
-      {/* <Register/> */}
-
-      <Body />
-         <ToastContainer position="top-center" autoClose={2000} />
-      {/* <Bookingpage/> */}
-      {/* <Body/> */}
-      {/* <Onboardingpage/> */}
-
-      {/* <Partneroverview/> */}
-      {/* <Profile/> */}
-      {/* <SuperAdmin/> */}
-      {/* <SuperAdminUser/> */}
-      {/* <Reservation/> */}
-      {/* <Reviews/> */}
-      {/* <Storage/> */}
-      {/* <UserOverview/> */}
-      {/* <Onboardingpage/> */}
-      {/* <UserBookings/> */}
+   
+      <Body /> */
+          <ToastContainer position="top-center" autoClose={2000} /> 
+     {/* <SuperAdmin/> */}
     </>
   );
 

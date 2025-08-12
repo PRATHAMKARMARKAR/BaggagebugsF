@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
+
 const SuperAdmin = () => {
+  const [viewType, setViewType] = useState("User"); 
+  const navigate = useNavigate();
+
   const tableRows = [
     { col1: "Row 2 - A", col2: "Row 2 - B", col3: "Row 2 - C" },
     { col1: "Row 3 - A", col2: "Row 3 - B", col3: "Row 3 - C" },
     { col1: "Row 4 - A", col2: "Row 4 - B", col3: "Row 4 - C" },
   ];
+
   return (
     <>
       <div className="page p-2 pl-15 pr-15">
@@ -42,6 +48,28 @@ const SuperAdmin = () => {
             </div>
           </div>
         </div>
+
+        {/* 🔹 Toggle Button for User / Partner */}
+        <div className="flex justify-end pr-10">
+          <button
+            onClick={() => {
+              setViewType((prev) => {
+                const newType = prev === "User" ? "Partner" : "User";
+                if (newType === "Partner") {
+                  navigate("/superAdminpartner");
+                }
+                else{
+                  navigate("/superAdmin");
+                }
+                return newType;
+              });
+            }}
+            className="bg-[#FA8128] text-white px-6 py-2 rounded-lg shadow-md hover:bg-orange-600 transition"
+          >
+            {viewType}
+          </button>
+        </div>
+
         <div className="top-div w-full flex flex-col lg:flex-row flex-wrap gap-4 items-start lg:items-center justify-between p-4 pl-10 pr-10">
           <div className="text-div font-bold">
             <div className="text-div-1 text-[#FA8128] text-4xl sm:text-5xl mb-2">
@@ -50,7 +78,6 @@ const SuperAdmin = () => {
           </div>
 
           <div className="flex flex-wrap gap-4 items-center">
-            {/* Doubled-width search bar */}
             <div className="flex items-center border-2 border-[#63C5DA] rounded-[2rem] px-4 py-2 w-[500px] text-[#FA8128] bg-white shadow-md">
               <input
                 type="text"
@@ -79,8 +106,8 @@ const SuperAdmin = () => {
             </div>
           </div>
         </div>
+
         <div className="table-div flex flex-col gap-4 p-4 pl-10 pr-10">
-          {/* Static header row */}
           <div className="flex justify-between w-full items-center pb-2 border-b border-gray-300">
             <div className="flex-1 ">
               <p className="text-[#FA8128] font-bold">Full Name</p>
@@ -93,7 +120,6 @@ const SuperAdmin = () => {
             </div>
           </div>
 
-          {/* Dynamic rows from external array */}
           {tableRows.map((row, index) => (
             <div
               key={index}

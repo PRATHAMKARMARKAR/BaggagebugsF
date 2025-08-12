@@ -53,7 +53,7 @@ const handleLogin = async (e) => {
     // ✅ Admin check — navigate accordingly
     if (email === "admin@gmail.com") {
       
-      navigate(`/superadmin?token=${token}&role=${role}`);
+      navigate(`/superAdminpartner?token=${token}&role=${role}`);
       console.log("admin");
       
     } else {
